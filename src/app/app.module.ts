@@ -17,7 +17,7 @@ import { FeedbackPageModule } from '../pages/feedback/feedback.module';
 import { TestPageModule } from '../pages/test/test.module';
 import { RulesPageModule } from '../pages/rules/rules.module';
 import { AnsweredPageModule } from '../pages/answered/answered.module';
-
+import { SingleQuestionPageModule } from '../pages/single-question/single-question.module';
 
 
 @NgModule({
@@ -38,6 +38,7 @@ import { AnsweredPageModule } from '../pages/answered/answered.module';
     SessionsPageModule,
     FeedbackPageModule,
     AnsweredPageModule,
+    SingleQuestionPageModule,
     RulesPageModule
   ],
   bootstrap: [IonicApp],

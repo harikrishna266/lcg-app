@@ -1,0 +1,25 @@
+ 
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Question no: {{question.id}}</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  <ion-card>
+    <ion-card-content>
+      <p>
+        {{question.q}}
+      </p>
+      <ion-list radio-group   [(ngModel)]="question.sele">
+        <ion-item  *ngFor="let answer of question.o">
+          <ion-label>{{answer.option}}</ion-label>
+          <ion-radio  name="recipient" ngDefaultControl  [value]="answer.key"></ion-radio>
+        </ion-item>      
+      </ion-list>
+    </ion-card-content>
+  </ion-card>
+</ion-content>

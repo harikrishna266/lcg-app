@@ -5,7 +5,7 @@
       
     </ion-buttons>
 		<ion-title>
-      Page Title
+      Page Title  &nbsp; Time:{{minute}} mm: {{seconds}} ss
     </ion-title>
   	<ion-buttons end>
       <button ion-button icon-only (click)="answered()">
@@ -17,11 +17,23 @@
     </ion-buttons>
 		</ion-navbar>
 </ion-header>
-
+    
 
 <ion-content padding>
-		
+<ion-card>
+  <ion-card-header>
+    Questions
+  </ion-card-header>
+
+  <ion-list>
+    <button  [color]="(i.sele != '')?'secondary':''" ion-item *ngFor="let i of questions" (click)="openQuestion(i)">
+      <ion-icon name="arrow-dropright-circle"></ion-icon>
+       Question number {{i.id}}  
+    </button>
+  </ion-list>
+</ion-card> 
 </ion-content>
 <ion-footer>
-  	<button ion-button full > Submit Test </button>
+  	<button color="secondary" *ngIf="startTest" ion-button full > Submit Test </button>
+    <button  color="primary" ion-button full *ngIf="!startTest" (click)="startTimer()" > Start Test </button>
 </ion-footer>
