@@ -1,0 +1,39 @@
+<ion-header >
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Programs</ion-title>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content >
+	<ion-card *ngFor="let i of [1,2,3,4]">
+	  <img src="./assets/imgs/education.jpg"/>
+	  
+	  <ion-item>
+	    <ion-icon name="map" item-start large></ion-icon>
+	    <h2>Museum of Football</h2>
+	    <p>11 N. Way St, Madison, WI 53703</p>
+	  </ion-item>
+	  <ion-item>
+	    <ion-icon name="school" item-left large ></ion-icon>
+	    <h2>Institute of Fine Cocktails</h2>
+	    <p>14 S. Hop Avenue, Madison, WI 53703</p>
+	  </ion-item>
+	  <ion-row>
+	    <ion-col center text-center >
+	      <button ion-button icon-left clear small (click)="Pay()">
+	        <div>Pay</div>
+	      </button>
+	    </ion-col>
+	    <ion-col center text-center >
+	      <button ion-button icon-left clear small (click)="moreDetails()">
+	        <div>More</div>
+	      </button>
+	    </ion-col>
+  	 </ion-row>
+  	</ion-card>
+  	
+</ion-content>

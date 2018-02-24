@@ -1,0 +1,31 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>program-details</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content >
+  <ion-card>
+  	 
+  	<ion-list>
+		  <ion-item>
+	    <ion-label fixed>Bank Name</ion-label>
+	    <ion-input type="text" value=""></ion-input>
+	  </ion-item>
+	  <ion-item>
+	    <ion-label fixed>TXN number</ion-label>
+	    <ion-input type="text" value=""></ion-input>
+	  </ion-item>
+	  <ion-item>
+	    <ion-label fixed>Amount</ion-label>
+	    <ion-input type="text" value=""></ion-input>
+	  </ion-item>
+	</ion-list>
+	<button ion-button  full (click)="makepayment()" >Pay</button>
+	<button ion-button secondary full (click)="cancel()" >Camcel</button>
+
+  </ion-card>
+</ion-content>

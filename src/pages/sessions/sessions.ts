@@ -1,25 +1,21 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
-import { LoginPage } from '../login/login';
-
+import { FeedbackPage } from '../feedback/feedback';
 @IonicPage()
 @Component({
-  selector: 'page-landing',
-  templateUrl: 'landing.html',
+  selector: 'page-sessions',
+  templateUrl: 'sessions.html',
 })
-export class LandingPage {
+export class SessionsPage {
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad LandingPage');
+    console.log('ionViewDidLoad SessionsPage');
   }
-  login() {
-      this.navCtrl.push(LoginPage);
-  }
-  register() {
-    
+  feedback() {
+  	this.navCtrl.push(FeedbackPage);
   }
 
 }
