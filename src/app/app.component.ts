@@ -16,7 +16,7 @@ import { TestPage } from '../pages/test/test';
 export class MyApp {
   @ViewChild(Nav) nav: Nav;
 
-  rootPage: any = TestPage;
+  rootPage: any = LandingPage;
 
   pages: Array<{title: string, component: any}>;
 
