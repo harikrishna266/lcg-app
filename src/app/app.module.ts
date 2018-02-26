@@ -18,7 +18,7 @@ import { TestPageModule } from '../pages/test/test.module';
 import { RulesPageModule } from '../pages/rules/rules.module';
 import { AnsweredPageModule } from '../pages/answered/answered.module';
 import { SingleQuestionPageModule } from '../pages/single-question/single-question.module';
-
+import { ResultsPageModule } from '../pages/results/results.module';
 
 @NgModule({
   declarations: [
@@ -32,6 +32,7 @@ import { SingleQuestionPageModule } from '../pages/single-question/single-questi
     LoginPageModule,
     LandingPageModule,    
     ProgramsPageModule,
+    ResultsPageModule,
     TestPageModule,
     ProgramDetailsPageModule,
     PaymentPageModule,

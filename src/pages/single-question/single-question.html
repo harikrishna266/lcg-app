@@ -1,7 +1,7 @@
  
 <ion-header>
 
-  <ion-navbar>
+  <ion-navbar >
     <ion-title>Question no: {{question.id}}</ion-title>
   </ion-navbar>
 
@@ -20,6 +20,13 @@
           <ion-radio  name="recipient" ngDefaultControl  [value]="answer.key"></ion-radio>
         </ion-item>      
       </ion-list>
-    </ion-card-content>
+      <button ion-button icon-left (click)="navCtrl.pop()">
+           Submit
+      </button>
+      <button ion-button icon-right (click)="question.sele= '';navCtrl.pop()">
+           close
+      </button>
+     </ion-card-content>
   </ion-card>
+ 
 </ion-content>
