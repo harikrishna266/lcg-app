@@ -19,7 +19,12 @@ import { RulesPageModule } from '../pages/rules/rules.module';
 import { AnsweredPageModule } from '../pages/answered/answered.module';
 import { SingleQuestionPageModule } from '../pages/single-question/single-question.module';
 import { ResultsPageModule } from '../pages/results/results.module';
+import { HttpModule } from '@angular/http';
+import { HttpClientModule, HttpClient } from '@angular/common/http'; 
 
+import { LoginProvider } from '../providers/login';
+import { ApiService } from '../providers/api';
+import { ProgramProvider } from '../providers/program';
 @NgModule({
   declarations: [
     MyApp,
@@ -36,6 +41,8 @@ import { ResultsPageModule } from '../pages/results/results.module';
     TestPageModule,
     ProgramDetailsPageModule,
     PaymentPageModule,
+    HttpModule,
+    HttpClientModule,
     SessionsPageModule,
     FeedbackPageModule,
     AnsweredPageModule,
@@ -51,7 +58,10 @@ import { ResultsPageModule } from '../pages/results/results.module';
   providers: [
     StatusBar,
     SplashScreen,
-    {provide: ErrorHandler, useClass: IonicErrorHandler}
+    {provide: ErrorHandler, useClass: IonicErrorHandler},
+    LoginProvider,
+    ApiService,
+    ProgramProvider
   ]
 })
 export class AppModule {}

@@ -1,27 +1,28 @@
-<ion-header >
-  <ion-navbar>
-    <button ion-button menuToggle>
-      <ion-icon name="menu"></ion-icon>
-    </button>
-    <ion-title>Login</ion-title>
-  </ion-navbar>
+<ion-header>
+    <ion-navbar>
+        <button ion-button menuToggle>
+            <ion-icon name="menu"></ion-icon>
+        </button>
+        <ion-title>Login</ion-title>
+    </ion-navbar>
 </ion-header>
 
-<ion-content >
-  <ion-card>
-  	<ion-list>
-  		   <img class="login-image" src="./assets/imgs/lng.jpg"/>		
-		  <ion-item>
-		    <ion-label fixed>Username</ion-label>
-		    <ion-input type="text" value=""></ion-input>
-		  </ion-item>
+<ion-content>
+    <form [formGroup]="loginForm" (ngSubmit)="makelogin()">
+        <ion-card>
+            <ion-list>
+                <img class="login-image" src="./assets/imgs/lng.jpg" />
+                <ion-item>
+                    <ion-label fixed>Username</ion-label>
+                    <ion-input  formControlName="email"  type="text" value=""></ion-input>
+                </ion-item>
 
-		  <ion-item>
-		    <ion-label fixed>Password</ion-label>
-		    <ion-input type="password"></ion-input>
-		  </ion-item>
-		</ion-list>
-		 <button ion-button full (click)="login()" >Login</button>
-
-  </ion-card>
+                <ion-item>
+                    <ion-label fixed>Password</ion-label>
+                    <ion-input  formControlName="password" type="password"></ion-input>
+                </ion-item>
+            </ion-list>
+            <button ion-button full type="submit" >Login</button>
+        </ion-card>
+    </form>
 </ion-content>
