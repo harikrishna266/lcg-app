@@ -3,6 +3,7 @@ import { IonicPage, App, NavController, NavParams } from 'ionic-angular';
 import { ProgramsPage } from '../programs/programs';
 import { LoginProvider } from '../../providers//login';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { ToastController } from 'ionic-angular';
 import 'rxjs/add/operator/map';
 
 @IonicPage()
@@ -15,6 +16,7 @@ export class LoginPage {
 
   constructor(public navCtrl: NavController,
     public loginSer: LoginProvider,
+    public toast: ToastController,
     public fb: FormBuilder,
     public navParams: NavParams) {
     this.loginForm = this.fb.group({
@@ -32,6 +34,13 @@ export class LoginPage {
       .subscribe((res: any) => {
         localStorage.setItem('access_token', res.access_token);
         this.navCtrl.setRoot(ProgramsPage);
+        let toast = this.toast.create({
+          message: 'You are loged in',
+          duration: 3000,
+          position: 'top'
+        })
+        toast.present();
+
       }, (e) => {
 
       })

@@ -19,6 +19,8 @@ import { RulesPageModule } from '../pages/rules/rules.module';
 import { AnsweredPageModule } from '../pages/answered/answered.module';
 import { SingleQuestionPageModule } from '../pages/single-question/single-question.module';
 import { ResultsPageModule } from '../pages/results/results.module';
+import { RegisterPageModule } from '../pages/register/register.module'
+
 import { HttpModule } from '@angular/http';
 import { HttpClientModule, HttpClient } from '@angular/common/http'; 
 
@@ -29,7 +31,6 @@ import { ProgramProvider } from '../providers/program';
   declarations: [
     MyApp,
     HomePage,
-    ListPage
   ],
   imports: [
     BrowserModule,
@@ -38,6 +39,7 @@ import { ProgramProvider } from '../providers/program';
     LandingPageModule,    
     ProgramsPageModule,
     ResultsPageModule,
+    RegisterPageModule,
     TestPageModule,
     ProgramDetailsPageModule,
     PaymentPageModule,
@@ -52,8 +54,6 @@ import { ProgramProvider } from '../providers/program';
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
-    HomePage,
-    ListPage
   ],
   providers: [
     StatusBar,

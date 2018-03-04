@@ -1,0 +1,42 @@
+<ion-header>
+    <ion-navbar>
+        <button ion-button menuToggle>
+            <ion-icon name="menu"></ion-icon>
+        </button>
+        <ion-title>Register</ion-title>
+    </ion-navbar>
+</ion-header>
+
+<ion-content>
+    
+    <form [formGroup]="registerForm" (ngSubmit)="register()">
+        <ion-card>
+            <ion-list>
+                <img class="login-image" src="./assets/imgs/lng.jpg" />
+                <ion-item>
+                    <p style="color:red" *ngFor="let e of error">
+                            {{e}}
+                    </p>
+                </ion-item>  
+                <ion-item>
+                    <ion-label fixed>Name</ion-label>
+                    <ion-input  formControlName="name"  type="text" value=""></ion-input>
+                </ion-item>
+                <ion-item>
+                    <ion-label fixed>email id</ion-label>
+                    <ion-input  formControlName="email"  pattern="[a-zA-Z0-9.-_]{1,}@[a-zA-Z.-]{2,}[.]{1}[a-zA-Z]{2,}" type="text" value=""></ion-input>
+                </ion-item>
+
+                <ion-item>
+                    <ion-label fixed>Password</ion-label>
+                    <ion-input  formControlName="password" type="password"></ion-input>
+                </ion-item>
+                <ion-item>
+                    <ion-label fixed>Password</ion-label>
+                    <ion-input  formControlName="password_confirmation" type="password"></ion-input>
+                </ion-item>
+            </ion-list>
+            <button ion-button full type="submit" [disabled]="!registerForm.valid" >Register</button>
+        </ion-card>
+    </form>
+</ion-content>
