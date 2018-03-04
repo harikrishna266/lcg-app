@@ -8,6 +8,7 @@ import { ResultsPage } from '../results/results';
 import { ProgramsPage } from '../programs/programs';
 import { TestModel, QuestionModel } from '../../model/freeprogram';
 import { TestProvider } from '../../providers/test';
+import { TestFeedbackPage } from '../test-feedback/test-feedback';
 
 import { Observable } from 'rxjs/Rx';
 import "rxjs/add/observable/timer";
@@ -133,14 +134,21 @@ export class TestPage {
     testrules.onDidDismiss((data) => {
       if(data) {
         this.markteststart(test);
+      }else{
+        this.navCtrl.setRoot(ProgramsPage);
       }
     })
   }
-  markAnswer(testid, answer, question) {
-    this.testSer.MarkAnswers(testid, answer, question).subscribe(res => { });
+  markAnswer( answer, question) {
+    console.log(answer,question);
+    this.testSer.MarkAnswers(this.testDetails.id, answer, question).subscribe(res => { });
   }
   congrats() {
-   
+    let testrules = this.modal.create(TestFeedbackPage,{data:this.testDetails.id});
+    testrules.present();
+    testrules.onDidDismiss((data) => {
+      this.navCtrl.setRoot(ProgramsPage);
+    })
   }
   ngOnInit() {
 

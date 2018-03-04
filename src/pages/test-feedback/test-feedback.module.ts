@@ -1,15 +1,14 @@
 import { NgModule } from '@angular/core';
 import { IonicPageModule } from 'ionic-angular';
-import { SessionsPage } from './sessions';
+import { TestFeedbackPage } from './test-feedback';
 import { RatingModule } from "ngx-rating";
-
 @NgModule({
   declarations: [
-    SessionsPage,
+    TestFeedbackPage,
   ],
   imports: [
-    IonicPageModule.forChild(SessionsPage),
+    IonicPageModule.forChild(TestFeedbackPage),
     RatingModule
   ],
 })
-export class SessionsPageModule {}
+export class TestFeedbackPageModule {}

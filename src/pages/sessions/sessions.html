@@ -48,6 +48,8 @@
       </ion-segment-button>
     </ion-segment>
   </div>
+<ion-card >
+    <ion-card-content>
   <div [ngSwitch]="tab">
     <div *ngSwitchCase="session.tab1">
       <div [innerHtml]="session.tab1_content">
@@ -65,6 +67,27 @@
       </div>
     </div>
   </div>
+  </ion-card-content>
+</ion-card>
+  <ion-card *ngIf="feedbackGiven">
+    <ion-card-header>
+        <h2>Submit your Feedback</h2>
+    </ion-card-header>
+   <ion-card-content>
+      <div class="row" *ngFor="let feed of sessionfeedback">
+          <div class="col col-xs-12" *ngIf="feed.question">
+              <p>{{feed.question}}</p> 
+          </div>
+          <div class="col col-xs-12" *ngIf="feed.question">
+              <rating [(ngModel)]="feed.rating" [max]="4">
+              </rating>
+          </div>
+      </div>
+      <ion-textarea name="messenger" cols="40" rows="2" [(ngModel)]="textfeedback" placeholder="Feedback...."></ion-textarea>
+ 
+      <button ion-button round outline type="submit" value="Submit Feedback"  [disabled]="!makeValid()" (click)="submit()" >Submit Feedback</button>
+    </ion-card-content> 
+  </ion-card>
 </ion-content>
 <ion-footer>
   <ion-toolbar color="light">

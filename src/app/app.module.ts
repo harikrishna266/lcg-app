@@ -19,7 +19,7 @@ import { AnsweredPageModule } from '../pages/answered/answered.module';
 import { SingleQuestionPageModule } from '../pages/single-question/single-question.module';
 import { ResultsPageModule } from '../pages/results/results.module';
 import { RegisterPageModule } from '../pages/register/register.module'
-
+import { TestFeedbackPageModule } from '../pages/test-feedback/test-feedback.module';
 import { HttpModule } from '@angular/http';
 import { HttpClientModule, HttpClient } from '@angular/common/http'; 
 
@@ -54,7 +54,8 @@ import { TestProvider } from '../providers/test';
     FeedbackPageModule,
     AnsweredPageModule,
     SingleQuestionPageModule,
-    RulesPageModule
+    RulesPageModule,
+    TestFeedbackPageModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [

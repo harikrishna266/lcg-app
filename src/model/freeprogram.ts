@@ -89,3 +89,23 @@ export class QuestionModel {
         
     }
 }
+export class FeedBackModel{
+    constructor(
+        public test_id:number,
+        public question_key:string,
+        public question:string,
+        public rating:number,
+    ){
+        
+    }
+}
+export class SessionFeedBackModel{
+    constructor(
+        public session_id:number,
+        public question_key:string,
+        public question:string,
+        public rating:number,
+    ){
+        
+    }
+}

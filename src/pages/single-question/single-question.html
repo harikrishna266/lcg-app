@@ -13,7 +13,7 @@
       <ion-list>
           <button  [color]="(i.selected)?'secondary':''" ion-item *ngFor="let i of questions;let j =index" (click)="openQuestion(j)">
               <ion-icon name="arrow-dropright-circle"></ion-icon>
-               q.{{j}}
+               q.{{j+1}}
             </button>
         </ion-list>
   </ion-content>

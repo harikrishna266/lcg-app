@@ -1,0 +1,29 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>Feedback</ion-title>
+  </ion-navbar>
+</ion-header>
+<ion-content>
+  <div *ngIf="!alreadyTaken">
+    <div   *ngFor="let feed of feedBack">
+      <div class="col col-xs-12" *ngIf="feed.question">
+        {{feed.question}}
+      </div>
+      <div class="col col-xs-12" *ngIf="feed.question">
+        <rating [(ngModel)]="feed.rating" [max]="4">
+        </rating>
+      </div>
+    </div>
+    <ion-textarea [(ngModel)]="textfeedback" placeholder="Something about yourself..">
+
+    </ion-textarea>
+  </div>
+  <div class="col col-xs-12 submit-btn" *ngIf="!alreadyTaken">
+    <button color="primary" ion-button full (click)="close()"> Submit </button>
+  </div>
+ 
+  <div *ngIf="alreadyTaken">
+    you have already given your feedback,
+    <button color="primary" ion-button full (click)="view.dismiss();"> Close</button>
+  </div>
+</ion-content>

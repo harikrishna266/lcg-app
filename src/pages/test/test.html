@@ -41,29 +41,29 @@
         </h2>
       </ion-card-content>
     </ion-card>
-    <ion-list class="wrapping-list" radio-group [(ngModel)]="q.selected">
+    <ion-list class="wrapping-list" radio-group [(ngModel)]="q.selected" >
       <ion-list-header>
-        Options
+        Options <a style="color:red" (click)="q.selected=false;markAnswer(false,q.id)" >Cencel Selection</a>
       </ion-list-header>
-      <ion-item class="wrapping-list">
+      <ion-item class="wrapping-list" >
         <ion-label>{{q.answer_1}}</ion-label>
-        <ion-radio name="recipient" ngDefaultControl [value]="1"></ion-radio>
+        <ion-radio name="recipient" ngDefaultControl (ionSelect)="markAnswer(1,q.id)" [value]="1"></ion-radio>
       </ion-item>
       <ion-item class="wrapping-list">
         <ion-label>{{q.answer_2}}</ion-label>
-        <ion-radio name="recipient" ngDefaultControl [value]="2"></ion-radio>
+        <ion-radio name="recipient" ngDefaultControl (ionSelect)="markAnswer(2,q.id)" [value]="2"></ion-radio>
       </ion-item>
       <ion-item class="wrapping-list">
         <ion-label>{{q.answer_3}}</ion-label>
-        <ion-radio name="recipient" ngDefaultControl [value]="3"></ion-radio>
+        <ion-radio name="recipient" ngDefaultControl (ionSelect)="markAnswer(3,q.id)" [value]="3"></ion-radio>
       </ion-item>
       <ion-item class="wrapping-list">
         <ion-label>{{q.answer_4}}</ion-label>
-        <ion-radio name="recipient" ngDefaultControl [value]="4"></ion-radio>
+        <ion-radio name="recipient" ngDefaultControl (ionSelect)="markAnswer(4,q.id)" [value]="4"></ion-radio>
       </ion-item>
-      <ion-item class="wrapping-list" *ngIf="q.answer_5">
+      <ion-item class="wrapping-list" *ngIf="q.answer_5" >
         <ion-label>{{q.answer_5}}</ion-label>
-        <ion-radio name="recipient" ngDefaultControl [value]="5"></ion-radio>
+        <ion-radio name="recipient" ngDefaultControl (ionSelect)="markAnswer(5,q.id)" [value]="5"></ion-radio>
       </ion-item>
     </ion-list>
   </ng-container>
