@@ -42,7 +42,12 @@ export class LoginPage {
         toast.present();
 
       }, (e) => {
-
+        let toast = this.toast.create({
+          message: 'Please check your username and password!',
+          duration: 3000,
+          position: 'top'
+        })
+        toast.present();
       })
   }
 

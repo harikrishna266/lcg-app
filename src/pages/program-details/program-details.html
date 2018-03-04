@@ -8,10 +8,6 @@
     <img [src]="prog.widebanner" />
     <div class="card-title">{{prog.name}} </div>
     <div class="card-subtitle">{{prog.venue}}</div>
-    <ion-card-content>
-      <p [innerHtml]="prog.description">
-      </p>
-    </ion-card-content>
     <ion-item>
       <ion-icon name="ribbon" item-start large></ion-icon>
       <h2>{{prog.name}}</h2>
@@ -21,6 +17,11 @@
       <ion-icon name="school" item-left large></ion-icon>
       <h2>{{prog.venue}}</h2>
     </ion-item>
+    <ion-card-content>
+      <p [innerHtml]="prog.description">
+      </p>
+    </ion-card-content>
+    
   </ion-card>
   <ion-list *ngIf="(buttonStatus == 'View Sessions') ||  (buttonStatus == 'Take Test')">
     <ion-list-header>
@@ -31,8 +32,8 @@
       {{session.name}}
     </button>
   </ion-list>
-  <button ion-button full (click)="openPDF(prog.pre_course_material_1)" [attr.disabled]="(buttonStatus == 'View Sessions' ||  buttonStatus ==  'Take Test')?null:'disabled'" > {{'Download Course material'|| prog.pre_course_material_1}}</button>
-  <button ion-button full (click)="openPDF(prog.pre_course_material_2)" [attr.disabled]="(buttonStatus == 'View Sessions' ||  buttonStatus ==  'Take Test')?null:'disabled'  "> {{'Download Course material'||prog.pre_course_material_2 }} </button>
+  <button ion-button full (click)="open(prog.pre_course_material_1)"  [attr.disabled]="(buttonStatus == 'View Sessions' ||  buttonStatus ==  'Take Test')?null:'disabled'" > {{'Download Course material'|| prog.pre_course_material_name_1}}</button>
+  <button ion-button full (click)="open(prog.pre_course_material_2)" target="_blank"  [attr.disabled]="(buttonStatus == 'View Sessions' ||  buttonStatus ==  'Take Test')?null:'disabled'  "> {{'Download Course material'||prog.pre_course_material_name_2 }} </button>
 </ion-content>
 <ion-footer>
     <ion-toolbar color="light">

@@ -109,5 +109,7 @@ export class ProgramDetailsPage {
         }
       })
   }
-  
+  open(link){
+    window.open(link,'_blank');
+  }
 }
