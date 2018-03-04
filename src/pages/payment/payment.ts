@@ -1,12 +1,8 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, LoadingController, ToastController } from 'ionic-angular';
 import { ProgramDetailsPage } from '../program-details/program-details';
-/**
- * Generated class for the PaymentPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { PaymentProvider } from '../../providers/payment';
 
 @IonicPage()
 @Component({
@@ -15,16 +11,47 @@ import { ProgramDetailsPage } from '../program-details/program-details';
 })
 export class PaymentPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  public pro;
+  public MakepaymentForm: FormGroup;
+
+  constructor(public navCtrl: NavController, 
+    public loader: LoadingController,
+    public payment: PaymentProvider,
+    public toast:ToastController,
+    public navParams: NavParams,
+    public fb: FormBuilder) {
+    this.pro = this.navParams.data.data;  
+    this.MakepaymentForm = this.fb.group({
+      bank: ['', Validators.required],
+      trxno: ['', Validators.required],
+      amount: ['', Validators.required],
+      program_id: [this.pro.id, Validators.required]
+    });
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad PaymentPage');
   }
-	makepayment() {
-		this.navCtrl.push(ProgramDetailsPage);	
-	}
+	
 	cancel() {
 		this.navCtrl.pop();	
-	}
+  }
+  makePayment() {
+    let loader  =this.loader.create({
+      content: 'Saving payment details...'
+    });
+    loader.present();
+
+    this.payment.makePayment(this.MakepaymentForm.value)
+      .subscribe(res => {
+        loader.dismiss();
+        this.toast.create({
+          message: 'we received your payment, please wait for approval',
+          duration: 3000,
+          position: 'top'
+        }).present();
+        this.navCtrl.pop();	
+        
+      })
+  }
 }

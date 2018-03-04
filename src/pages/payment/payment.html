@@ -1,31 +1,40 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title>payment</ion-title>
+		<ion-title>payment</ion-title>
+			<ion-buttons end>
+				<button ion-button icon-only (click)="cancel()">
+					<ion-icon name="close"></ion-icon>
+				</button>
+			</ion-buttons>		
   </ion-navbar>
 
 </ion-header>
-
-
-<ion-content >
+<ion-content>
   <ion-card>
-  	 
-  	<ion-list>
-		  <ion-item>
-	    <ion-label fixed>Bank Name</ion-label>
-	    <ion-input type="text" value=""></ion-input>
-	  </ion-item>
-	  <ion-item>
-	    <ion-label fixed>TXN number</ion-label>
-	    <ion-input type="text" value=""></ion-input>
-	  </ion-item>
-	  <ion-item>
-	    <ion-label fixed>Amount</ion-label>
-	    <ion-input type="text" value=""></ion-input>
-	  </ion-item>
-	</ion-list>
-	<button ion-button  full (click)="makepayment()" >Pay</button>
-	<button ion-button secondary full (click)="cancel()" >Cancel</button>
-
+    <ion-card-content>
+      <div [innerHtml]="pro.program_payment_instructions">
+      </div>
+    </ion-card-content>
   </ion-card>
+  <form [formGroup]="MakepaymentForm" (ngSubmit)="makePayment()">
+    <ion-list>
+      <ion-list-header>
+        Enter Payment Information :
+      </ion-list-header>
+      <ion-item>
+        <ion-label fixed>Bank Name</ion-label>
+        <ion-input formControlName="bank" name="bank" type="text" value=""></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label fixed>TXN number</ion-label>
+        <ion-input formControlName="trxno" type="text" name="trxno" value=""></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label fixed>Amount</ion-label>
+        <ion-input formControlName="amount" name="amount" type="number" value=""></ion-input>
+      </ion-item>
+    </ion-list>
+    <button ion-button type="submit" [disabled]="!MakepaymentForm.valid" full >Pay</button>
+  </form>
 </ion-content>

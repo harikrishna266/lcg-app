@@ -1,48 +1,49 @@
- 
 <ion-header>
-
   <ion-navbar>
-    <ion-title>Program details</ion-title>
+    <ion-title>{{prog.name}}</ion-title>
   </ion-navbar>
-
 </ion-header>
-
-
-<ion-content >
-<ion-card>
-	<img src="./assets/imgs/education.jpg"/>
-	<div class="card-title">Program 1 </div>
-	<div class="card-subtitle">More details</div>	
-  
-  <ion-card-content>
-    <p>Wait a minute. Wait a minute, Doc. Uhhh... Are you telling me that you built a time machine... out of a DeLorean?! Whoa. This is heavy.</p>
-  </ion-card-content>	
-   <ion-item>
-	    <ion-icon name="map" item-start large></ion-icon>
-	    <h2>Museum of Football</h2>
-	    <p>11 N. Way St, Madison, WI 53703</p>
-	  </ion-item>
-	  <ion-item>
-	    <ion-icon name="school" item-left large ></ion-icon>
-	    <h2>Institute of Fine Cocktails</h2>
-	    <p>14 S. Hop Avenue, Madison, WI 53703</p>
-	  </ion-item>	
-    </ion-card>
-     <ion-list>
-     <ion-list-header>
-     <h2>Session</h2>
+<ion-content>
+  <ion-card>
+    <img [src]="prog.widebanner" />
+    <div class="card-title">{{prog.name}} </div>
+    <div class="card-subtitle">{{prog.venue}}</div>
+    <ion-card-content>
+      <p [innerHtml]="prog.description">
+      </p>
+    </ion-card-content>
+    <ion-item>
+      <ion-icon name="ribbon" item-start large></ion-icon>
+      <h2>{{prog.name}}</h2>
+      <p>{{prog.venue}}</p>
+    </ion-item>
+    <ion-item>
+      <ion-icon name="school" item-left large></ion-icon>
+      <h2>{{prog.venue}}</h2>
+    </ion-item>
+  </ion-card>
+  <ion-list *ngIf="buttonStatus == 'View Sessions'">
+    <ion-list-header>
+      <h2>Session</h2>
     </ion-list-header>
     <button ion-item *ngFor="let i of [1,2,3,4,5,6,7]" (click)="viewSessions()">
-      <ion-icon name="ribbon" item-start ></ion-icon>
+      <ion-icon name="ribbon" item-start></ion-icon>
       Session {{i}}
     </button>
-
-  </ion-list> 
- 
+  </ion-list>
+  <button ion-button full [attr.disabled]="buttonStatus == 'View Sessions'?null:'disabled'" > Download Course material 1</button>
+  <button ion-button full [attr.disabled]="buttonStatus == 'View Sessions'?null:'disabled'  "> Download Course material 2</button>
 </ion-content>
 <ion-footer>
-   <button ion-button   full  (click)="test()">
-        <div>Take Test</div>
+    <ion-toolbar color="light">
+      <button ion-button full *ngIf="buttonStatus=='View Sessions'"  >
+          <div>Take Test</div>
       </button>
+      <button ion-button full *ngIf="buttonStatus=='Join Program'" (click)="pay(prog)">
+          <div>{{buttonStatus}}</div>
+      </button>
+      <button ion-button full *ngIf="buttonStatus=='Waiting Admins Approval'" (click)="pay(prog)">
+          <div>{{buttonStatus}}</div>
+      </button>
+    </ion-toolbar>
 </ion-footer>
-

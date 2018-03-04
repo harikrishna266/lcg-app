@@ -4,6 +4,7 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 
 import { HomePage } from '../pages/home/home';
+import { ProgramsPage } from '../pages/programs/programs';
 import { ListPage } from '../pages/list/list';
 
 import { LandingPage } from '../pages/landing/landing';
@@ -15,17 +16,16 @@ import { TestPage } from '../pages/test/test';
 })
 export class MyApp {
   @ViewChild(Nav) nav: Nav;
-
-  rootPage: any = LandingPage;
-
+  
+  rootPage: any;
   pages: Array<{title: string, component: any}>;
 
   constructor(public platform: Platform, public statusBar: StatusBar, public splashScreen: SplashScreen) {
     this.initializeApp();
-
+    this.rootPage = localStorage.getItem('access_token')? ProgramsPage:LandingPage;  
     // used for an example of ngFor and navigation
     this.pages = [
-      { title: 'Programs', component: HomePage },
+      { title: 'Programs', component: ProgramsPage },
       { title: 'About us', component: ListPage },
       { title: 'Feedback', component: ListPage },
       { title: 'Feedback', component: ListPage }

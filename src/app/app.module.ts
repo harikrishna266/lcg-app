@@ -27,6 +27,8 @@ import { HttpClientModule, HttpClient } from '@angular/common/http';
 import { LoginProvider } from '../providers/login';
 import { ApiService } from '../providers/api';
 import { ProgramProvider } from '../providers/program';
+import { PaymentProvider } from '../providers/payment';
+
 @NgModule({
   declarations: [
     MyApp,
@@ -61,7 +63,8 @@ import { ProgramProvider } from '../providers/program';
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     LoginProvider,
     ApiService,
-    ProgramProvider
+    ProgramProvider,
+    PaymentProvider
   ]
 })
 export class AppModule {}
