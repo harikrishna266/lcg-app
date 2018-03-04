@@ -1,5 +1,6 @@
 page-test {
-		ion-buttons {
-order: 1
-}
+	.wrapping-list .item-content, .wrapping-list .item {
+		overflow: initial;
+		white-space: initial;
+	}
 }

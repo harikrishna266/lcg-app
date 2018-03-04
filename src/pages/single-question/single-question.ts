@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, ViewController} from 'ionic-angular';
 
 /**
  * Generated class for the SingleQuestionPage page.
@@ -14,15 +14,18 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
   templateUrl: 'single-question.html',
 })
 export class SingleQuestionPage {
-  public question:any;
+  public questions:any;
   selected:any;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
-     this.question =  navParams.get('data');
+  constructor(public navCtrl: NavController, public view: ViewController ,public navParams: NavParams) {
+    this.questions = this.navParams.data.data
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad SingleQuestionPage');
+  }
+  openQuestion(i){
+    this.view.dismiss(i);
   }
 
 }

@@ -1,39 +1,74 @@
 <ion-header>
   <ion-navbar>
-		<ion-buttons left>
-      
-      
-    </ion-buttons>
-		<ion-title>
+    <ion-title>
       Time:{{minute}} mm: {{seconds}} ss
     </ion-title>
-  	<ion-buttons end>
-      <button ion-button icon-only (click)="answered()">
-        <ion-icon name="close-circle"></ion-icon>
-      </button>		
-      <button ion-button icon-only (click)="showrules()">
-        <ion-icon name="information-circle"></ion-icon>
+    <ion-buttons end>
+      <button ion-button icon-only (click)="presentPopover()">
+        <ion-icon name="more"></ion-icon>
       </button>
     </ion-buttons>
-		</ion-navbar>
+  </ion-navbar>
 </ion-header>
-    
-
-<ion-content padding>
-<ion-card>
-  <ion-card-header>
-    Questions
-  </ion-card-header>
-
-  <ion-list>
-    <button  [color]="(i.sele != '')?'secondary':''" ion-item *ngFor="let i of questions" (click)="openQuestion(i)">
-      <ion-icon name="arrow-dropright-circle"></ion-icon>
-       Question number {{i.id}}  
-    </button>
-  </ion-list>
-</ion-card> 
+<ion-content>
+  <ion-toolbar>
+      <ion-buttons start>
+        <button ion-button icon-only color="royal"  [attr.disabled]="!pageIndex? '' : null"  (click)="goTo('first')">
+            <ion-icon name="skip-backward"></ion-icon>
+        </button>
+        <button ion-button icon-only color="royal" [attr.disabled]="pageIndex == 0 ? '' : null" (click)="goTo('prev')">
+            <ion-icon name="arrow-back"></ion-icon>
+          </button>
+      </ion-buttons>
+       
+      <ion-buttons end>
+        <button ion-button icon-only color="royal" [attr.disabled]="pageIndex ==questions.length-1 ? '' : null" (click)="goTo('next')">
+            <ion-icon name="arrow-forward"></ion-icon>
+          </button>
+        <button ion-button icon-only color="royal"  [attr.disabled]="pageIndex == questions.length-1? '' : null" (click)="goTo('last')">
+            <ion-icon name="skip-forward"></ion-icon>
+        </button>
+      </ion-buttons>
+    </ion-toolbar>
+  <ng-container   *ngFor="let q of (questions|paging:pageIndex:pageSize); let i = index">
+    <ion-card >
+      <ion-card-header>
+          <b>Q.{{pageIndex+1}}&nbsp; </b>
+      </ion-card-header>
+      <ion-card-content>
+        <h2>
+          {{q.question}}
+        </h2>
+      </ion-card-content>
+    </ion-card>
+    <ion-list class="wrapping-list" radio-group [(ngModel)]="q.selected">
+      <ion-list-header>
+        Options
+      </ion-list-header>
+      <ion-item class="wrapping-list">
+        <ion-label>{{q.answer_1}}</ion-label>
+        <ion-radio name="recipient" ngDefaultControl [value]="1"></ion-radio>
+      </ion-item>
+      <ion-item class="wrapping-list">
+        <ion-label>{{q.answer_2}}</ion-label>
+        <ion-radio name="recipient" ngDefaultControl [value]="2"></ion-radio>
+      </ion-item>
+      <ion-item class="wrapping-list">
+        <ion-label>{{q.answer_3}}</ion-label>
+        <ion-radio name="recipient" ngDefaultControl [value]="3"></ion-radio>
+      </ion-item>
+      <ion-item class="wrapping-list">
+        <ion-label>{{q.answer_4}}</ion-label>
+        <ion-radio name="recipient" ngDefaultControl [value]="4"></ion-radio>
+      </ion-item>
+      <ion-item class="wrapping-list" *ngIf="q.answer_5">
+        <ion-label>{{q.answer_5}}</ion-label>
+        <ion-radio name="recipient" ngDefaultControl [value]="5"></ion-radio>
+      </ion-item>
+    </ion-list>
+  </ng-container>
 </ion-content>
 <ion-footer>
-  	<button color="secondary" *ngIf="startTest" ion-button full > Submit Test </button>
-    <button  color="primary" ion-button full *ngIf="!startTest" (click)="startTimer()" > Start Test </button>
+  <button color="secondary" *ngIf="startTest" ion-button full> Submit Test </button>
+  <button color="primary" ion-button full *ngIf="!startTest" (click)="startTimer()"> Start Test </button>
 </ion-footer>

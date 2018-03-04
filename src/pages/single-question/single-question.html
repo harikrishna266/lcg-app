@@ -1,32 +1,19 @@
- 
 <ion-header>
-
-  <ion-navbar >
-    <ion-title>Question no: {{question.id}}</ion-title>
-  </ion-navbar>
-
-</ion-header>
-
-
-<ion-content padding>
-  <ion-card>
-    <ion-card-content>
-      <p>
-        {{question.q}}
-      </p>
-      <ion-list radio-group   [(ngModel)]="question.sele">
-        <ion-item  *ngFor="let answer of question.o">
-          <ion-label>{{answer.option}}</ion-label>
-          <ion-radio  name="recipient" ngDefaultControl  [value]="answer.key"></ion-radio>
-        </ion-item>      
-      </ion-list>
-      <button ion-button icon-left (click)="navCtrl.pop()">
-           Submit
-      </button>
-      <button ion-button icon-right (click)="question.sele= '';navCtrl.pop()">
-           close
-      </button>
-     </ion-card-content>
-  </ion-card>
- 
-</ion-content>
+    <ion-navbar>
+      <ion-title>Popovers</ion-title>
+      <ion-buttons end>
+        <button ion-button icon-only (click)="presentPopover($event)">
+          <ion-icon name="more"></ion-icon>
+        </button>
+      </ion-buttons>
+    </ion-navbar>
+  </ion-header>
+  
+  <ion-content padding>
+      <ion-list>
+          <button  [color]="(i.selected)?'secondary':''" ion-item *ngFor="let i of questions;let j =index" (click)="openQuestion(j)">
+              <ion-icon name="arrow-dropright-circle"></ion-icon>
+               q.{{j}}
+            </button>
+        </ion-list>
+  </ion-content>

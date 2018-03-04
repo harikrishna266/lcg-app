@@ -59,3 +59,33 @@ export class SessionModel {
        
    }
 }
+
+
+export class TestModel{
+    constructor(
+        public id:number,
+        public program_id:string,
+        public title:string,
+        public duration:number,
+        public guidelines:string,
+    ){
+        
+    }
+}
+
+export class QuestionModel {
+    constructor(
+        public 	id:number,
+        public 	test_id:number,
+        public 	question:string,
+        public answer_1:string,
+        public answer_2:string,
+        public answer_3:string,
+        public answer_4:string,
+        public answer_5:string,
+        public correct_answer:string,
+        public selected:number,
+    ){
+        
+    }
+}

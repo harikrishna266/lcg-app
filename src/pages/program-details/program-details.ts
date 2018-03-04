@@ -17,7 +17,9 @@ export class ProgramDetailsPage {
 
   public buttonStatus:string;
   public prog:PaidProgramModel;
-  public sessions:SessionModel[] = [];;
+  public sessions:SessionModel[] = [];
+  public programtest:any;
+
   constructor(
     public navCtrl: NavController,
     public programSer:ProgramProvider,
@@ -40,8 +42,8 @@ export class ProgramDetailsPage {
   viewSessions(session) {
     this.navCtrl.push(SessionsPage,{data:session});
   }
-  test() {
-   this.navCtrl.setRoot(TestPage); 
+  taketest(prog) {
+   this.navCtrl.setRoot(TestPage,{program:prog}); 
   }
   checkJoinButtonStatus() {
     this.programSer.checkIfPaidOrNot(this.prog.id)
@@ -71,6 +73,7 @@ export class ProgramDetailsPage {
     })
   }
   getPaidData(id){
+    console.log(id);
     this.getPaidProgram(id);
     this.getSessions(id);
     this.checktestStatus(id);
@@ -106,6 +109,7 @@ export class ProgramDetailsPage {
       .subscribe(res => {
         if(res.length > 0) {
           this.buttonStatus = 'Take Test';
+          this.programtest = res[0];
         }
       })
   }
