@@ -22,24 +22,24 @@
       <h2>{{prog.venue}}</h2>
     </ion-item>
   </ion-card>
-  <ion-list *ngIf="buttonStatus == 'View Sessions'">
+  <ion-list *ngIf="(buttonStatus == 'View Sessions') ||  (buttonStatus == 'Take Test')">
     <ion-list-header>
-      <h2>Session</h2>
+      <h2>Sessions</h2>
     </ion-list-header>
-    <button ion-item *ngFor="let i of [1,2,3,4,5,6,7]" (click)="viewSessions()">
+    <button ion-item *ngFor="let session of sessions" (click)="viewSessions(session)">
       <ion-icon name="ribbon" item-start></ion-icon>
-      Session {{i}}
+      {{session.name}}
     </button>
   </ion-list>
-  <button ion-button full [attr.disabled]="buttonStatus == 'View Sessions'?null:'disabled'" > Download Course material 1</button>
-  <button ion-button full [attr.disabled]="buttonStatus == 'View Sessions'?null:'disabled'  "> Download Course material 2</button>
+  <button ion-button full (click)="openPDF(prog.pre_course_material_1)" [attr.disabled]="(buttonStatus == 'View Sessions' ||  buttonStatus ==  'Take Test')?null:'disabled'" > {{'Download Course material'|| prog.pre_course_material_1}}</button>
+  <button ion-button full (click)="openPDF(prog.pre_course_material_2)" [attr.disabled]="(buttonStatus == 'View Sessions' ||  buttonStatus ==  'Take Test')?null:'disabled'  "> {{'Download Course material'||prog.pre_course_material_2 }} </button>
 </ion-content>
 <ion-footer>
     <ion-toolbar color="light">
-      <button ion-button full *ngIf="buttonStatus=='View Sessions'"  >
-          <div>Take Test</div>
-      </button>
       <button ion-button full *ngIf="buttonStatus=='Join Program'" (click)="pay(prog)">
+          <div>{{buttonStatus}}</div>
+      </button>
+      <button ion-button full *ngIf="buttonStatus=='Take Test'" (click)="pay(prog)">
           <div>{{buttonStatus}}</div>
       </button>
       <button ion-button full *ngIf="buttonStatus=='Waiting Admins Approval'" (click)="pay(prog)">

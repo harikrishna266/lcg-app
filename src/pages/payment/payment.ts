@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, LoadingController, ToastController } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, ViewController, LoadingController, ToastController } from 'ionic-angular';
 import { ProgramDetailsPage } from '../program-details/program-details';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { PaymentProvider } from '../../providers/payment';
@@ -17,6 +17,7 @@ export class PaymentPage {
   constructor(public navCtrl: NavController, 
     public loader: LoadingController,
     public payment: PaymentProvider,
+    public viewCtrl:ViewController,
     public toast:ToastController,
     public navParams: NavParams,
     public fb: FormBuilder) {
@@ -50,7 +51,7 @@ export class PaymentPage {
           duration: 3000,
           position: 'top'
         }).present();
-        this.navCtrl.pop();	
+        this.viewCtrl.dismiss(res);
         
       })
   }

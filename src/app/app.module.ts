@@ -28,6 +28,7 @@ import { LoginProvider } from '../providers/login';
 import { ApiService } from '../providers/api';
 import { ProgramProvider } from '../providers/program';
 import { PaymentProvider } from '../providers/payment';
+import { SessionProvider } from '../providers/session';
 
 @NgModule({
   declarations: [
@@ -64,7 +65,8 @@ import { PaymentProvider } from '../providers/payment';
     LoginProvider,
     ApiService,
     ProgramProvider,
-    PaymentProvider
+    PaymentProvider,
+    SessionProvider
   ]
 })
 export class AppModule {}
