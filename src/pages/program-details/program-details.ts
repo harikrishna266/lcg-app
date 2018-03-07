@@ -27,11 +27,38 @@ export class ProgramDetailsPage {
     public modal:ModalController,
     public navParams: NavParams) {
       let res = this.navParams.data.data;
-    this.prog =    new PaidProgramModel(res.id,res.name,
-            res.venue,res.date,res.banner,
-            res.widebanner,res.description,
-            res.pre_course_material_1,res.pre_course_material_2,
-            res.pre_course_material_name_1,res.pre_course_material_name_2,res.program_payment_instructions
+      let banner_url = "";
+      let banner  = this.navParams.data.data.banner.split('/');
+      if(banner.length>0) banner_url  = banner[banner.length-1];
+      else banner_url = this.navParams.data.data.banner;
+  
+    this.prog =    new PaidProgramModel(
+            res.id,
+            res.name,
+            res.venue,
+            res.date,
+            banner_url,
+            '',
+            res.description,
+            res.pre_course_material_1,
+            res.pre_course_material_2,
+            res.pre_course_material_3,
+            res.pre_course_material_4,
+            res.pre_course_material_5,
+            res.pre_course_material_6,
+            res.pre_course_material_7,
+            res.pre_course_material_8,
+            res.pre_course_material_9,
+            res.pre_course_material_name_1,
+            res.pre_course_material_name_2,
+            res.pre_course_material_name_3,
+            res.pre_course_material_name_4,
+            res.pre_course_material_name_5,
+            res.pre_course_material_name_6,
+            res.pre_course_material_name_7,
+            res.pre_course_material_name_8,
+            res.pre_course_material_name_9,
+            res.program_payment_instructions
         )
    this.checkJoinButtonStatus();
   }
@@ -81,12 +108,32 @@ export class ProgramDetailsPage {
   getPaidProgram(id){
     this.programSer.getPaidProgram(id)
       .subscribe(res => {
-        this.prog = new PaidProgramModel(res.id,res.name,
-                                                res.venue,res.date,res.banner,
-                                                res.widebanner,res.description,
-                                                res.pre_course_material_1,res.pre_course_material_2,
-                                                res.pre_course_material_name_1,res.pre_course_material_name_2,
-                                                res.program_payment_instructions
+        this.prog = new PaidProgramModel(res.id,
+          res.name,
+          res.venue,
+          res.date,
+          res.banner,
+          '',
+          res.description,
+          res.pre_course_material_1,
+          res.pre_course_material_2,
+          res.pre_course_material_3,
+          res.pre_course_material_4,
+          res.pre_course_material_5,
+          res.pre_course_material_6,
+          res.pre_course_material_7,
+          res.pre_course_material_8,
+          res.pre_course_material_9,
+          res.pre_course_material_name_1,
+          res.pre_course_material_name_2,
+          res.pre_course_material_name_3,
+          res.pre_course_material_name_4,
+          res.pre_course_material_name_5,
+          res.pre_course_material_name_6,
+          res.pre_course_material_name_7,
+          res.pre_course_material_name_8,
+          res.pre_course_material_name_9,
+          res.program_payment_instructions
                                               )
       })
   }

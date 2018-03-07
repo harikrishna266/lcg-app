@@ -9,7 +9,7 @@ import { ProgramsPage } from '../pages/programs/programs';
 import { LandingPage } from '../pages/landing/landing';
 
 import { TestPage } from '../pages/test/test';
-
+ 
 @Component({
   templateUrl: 'app.html'
 })
@@ -28,7 +28,10 @@ export class MyApp {
     ];
 
   }
-
+  logout() {
+    localStorage.removeItem('access_token');
+    this.nav.setRoot(LandingPage);
+  }
   initializeApp() {
     this.platform.ready().then(() => {
       // Okay, so the platform is ready and our plugins are available.

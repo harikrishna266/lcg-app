@@ -68,10 +68,11 @@ export class SessionsPage {
     this.sessionSer.createFeedback( allfeedback)
     .subscribe((res) => {
       this.toast.create({
-        message: 'Feedback recordeded',
+        message: 'Feedback Submitted Successfully',
         duration: 3000,
         position: 'top'
-      });
+      }).present();
+      this.navCtrl.pop();
       this.feedbackGiven = true;
     })
   }

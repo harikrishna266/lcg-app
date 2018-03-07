@@ -35,7 +35,7 @@ export class LoginPage {
         localStorage.setItem('access_token', res.access_token);
         this.navCtrl.setRoot(ProgramsPage);
         let toast = this.toast.create({
-          message: 'You are loged in',
+          message: 'You are logged in',
           duration: 3000,
           position: 'top'
         })

@@ -1,14 +1,3 @@
-<ion-header>
-    <ion-navbar>
-      <ion-title>Popovers</ion-title>
-      <ion-buttons end>
-        <button ion-button icon-only (click)="presentPopover($event)">
-          <ion-icon name="more"></ion-icon>
-        </button>
-      </ion-buttons>
-    </ion-navbar>
-  </ion-header>
-  
   <ion-content padding>
       <ion-list>
           <button  [color]="(i.selected)?'secondary':''" ion-item *ngFor="let i of questions;let j =index" (click)="openQuestion(j)">

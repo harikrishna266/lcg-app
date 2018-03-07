@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, ViewController } from 'ionic-angular';
+import { IonicPage, NavController, NavParams,ToastController, ViewController } from 'ionic-angular';
 import { TestProvider } from '../../providers/test';
 import { FeedBackModel } from '../../model/freeprogram'
 
@@ -18,6 +18,7 @@ export class TestFeedbackPage {
 
   constructor(public navCtrl: NavController,
     public testSer:TestProvider,
+    public toast:ToastController,
     public view:ViewController,
     public navParams: NavParams) {
     this.testid = this.navParams.data.data;
@@ -49,7 +50,11 @@ export class TestFeedbackPage {
     let allfeedback = {test_id:this.testid,objective:this.feedBack,textfeedback:this.textfeedback};
     this.testSer.createFeedback( allfeedback)
     .subscribe((res) => {
-      
+      this.toast.create({
+        message: 'Feedback Submitted Successfully',
+        duration: 3000,
+        position: 'top'
+      }).present();
     })
     this.view.dismiss();
     

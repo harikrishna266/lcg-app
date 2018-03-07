@@ -114,15 +114,19 @@ export class TestPage {
         }
       })
   }
+  addMinutes(date, minutes) {
+    return new Date(date.getTime() + (12*60*1000*60 + (60*1000*30))).getTime();
+  }
   markteststart(test) {
     this.testSer.MarkTestStarted(test.id)
         .subscribe(res => {
           if(res != "updated") {
-            let StartTime  = new Date(res.starttime).getTime()
+            let StartTime  = this.addMinutes(new Date(res.starttime),30);
             let currentTime = new Date().getTime();
             let timeelapsed = currentTime-StartTime;
             let testTime =   this.testDetails.duration*60*1000;
             this.testDetails.duration =  parseInt(((testTime- timeelapsed)/(1000*60)).toFixed(2));
+            console.log(this.testDetails.duration);
           }
           this.startTimer();  
         })

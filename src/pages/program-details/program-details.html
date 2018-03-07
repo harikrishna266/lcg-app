@@ -5,7 +5,7 @@
 </ion-header>
 <ion-content>
   <ion-card>
-    <img [src]="prog.widebanner" />
+    
     <div class="card-title">{{prog.name}} </div>
     <div class="card-subtitle">{{prog.venue}}</div>
     <ion-item>
@@ -32,8 +32,17 @@
       {{session.name}}
     </button>
   </ion-list>
-  <button ion-button full (click)="open(prog.pre_course_material_1)"  [attr.disabled]="(buttonStatus == 'View Sessions' ||  buttonStatus ==  'Take Test')?null:'disabled'" > {{'Download Course material'|| prog.pre_course_material_name_1}}</button>
-  <button ion-button full (click)="open(prog.pre_course_material_2)" target="_blank"  [attr.disabled]="(buttonStatus == 'View Sessions' ||  buttonStatus ==  'Take Test')?null:'disabled'  "> {{'Download Course material'||prog.pre_course_material_name_2 }} </button>
+  <ion-list>
+    <ion-list-header>
+      <h2>Downloads</h2>
+    </ion-list-header>
+    <button ion-button full (click)="open(prog.pre_course_material_1)"  [attr.disabled]="(buttonStatus == 'View Sessions' ||  buttonStatus ==  'Take Test')?null:'disabled'" > {{ prog.pre_course_material_name_1  }}</button>
+  <button ion-button full (click)="open(prog.pre_course_material_2)" target="_blank"  [attr.disabled]="(buttonStatus == 'View Sessions' ||  buttonStatus ==  'Take Test')?null:'disabled'  "> {{  prog.pre_course_material_name_2 }} </button>
+  <button ion-button full (click)="open(prog.pre_course_material_3)" target="_blank"  [attr.disabled]="(buttonStatus == 'View Sessions' ||  buttonStatus ==  'Take Test')?null:'disabled'  "> {{  prog.pre_course_material_name_3 }} </button>
+  <button ion-button full (click)="open(prog.pre_course_material_4)" target="_blank"  [attr.disabled]="(buttonStatus == 'View Sessions' ||  buttonStatus ==  'Take Test')?null:'disabled'  "> {{  prog.pre_course_material_name_4 }} </button>
+  <button ion-button full (click)="open(prog.pre_course_material_5)" target="_blank"  [attr.disabled]="(buttonStatus == 'View Sessions' ||  buttonStatus ==  'Take Test')?null:'disabled'  "> {{  prog.pre_course_material_name_5 }} </button>
+  <button ion-button full (click)="open(prog.pre_course_material_6)" target="_blank"  [attr.disabled]="(buttonStatus == 'View Sessions' ||  buttonStatus ==  'Take Test')?null:'disabled'  "> {{  prog.pre_course_material_name_6 }} </button>
+  </ion-list>  
 </ion-content>
 <ion-footer>
     <ion-toolbar color="light">

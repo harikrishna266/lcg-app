@@ -11,24 +11,9 @@
   </ion-navbar>
 </ion-header>
 <ion-content>
-  <ion-toolbar>
-      <ion-buttons start>
-        <button ion-button icon-only color="royal"  [attr.disabled]="!pageIndex? '' : null"  (click)="goTo('first')">
-            <ion-icon name="skip-backward"></ion-icon>
-        </button>
-        <button ion-button icon-only color="royal" [attr.disabled]="pageIndex == 0 ? '' : null" (click)="goTo('prev')">
-            <ion-icon name="arrow-back"></ion-icon>
-          </button>
-      </ion-buttons>
-       
-      <ion-buttons end>
-        <button ion-button icon-only color="royal" [attr.disabled]="pageIndex ==questions.length-1 ? '' : null" (click)="goTo('next')">
-            <ion-icon name="arrow-forward"></ion-icon>
-          </button>
-        <button ion-button icon-only color="royal"  [attr.disabled]="pageIndex == questions.length-1? '' : null" (click)="goTo('last')">
-            <ion-icon name="skip-forward"></ion-icon>
-        </button>
-      </ion-buttons>
+    <ion-toolbar>
+        <button color="secondary" *ngIf="startTest" (click)="congrats()" ion-button full> Submit Test </button>
+        <button color="primary" ion-button full *ngIf="!startTest" (click)="startTimer()"> Start Test </button>
     </ion-toolbar>
   <ng-container   *ngFor="let q of (questions|paging:pageIndex:pageSize); let i = index">
     <ion-card >
@@ -43,7 +28,7 @@
     </ion-card>
     <ion-list class="wrapping-list" radio-group [(ngModel)]="q.selected" >
       <ion-list-header>
-        Options <a style="color:red" (click)="q.selected=false;markAnswer(false,q.id)" >Cencel Selection</a>
+        Options <a style="color:red" (click)="q.selected=false;markAnswer(false,q.id)" >Clear Answer</a>
       </ion-list-header>
       <ion-item class="wrapping-list" >
         <ion-label>{{q.answer_1}}</ion-label>
@@ -69,6 +54,24 @@
   </ng-container>
 </ion-content>
 <ion-footer>
-  <button color="secondary" *ngIf="startTest" ion-button full> Submit Test </button>
-  <button color="primary" ion-button full *ngIf="!startTest" (click)="startTimer()"> Start Test </button>
+    <ion-toolbar>
+        <ion-buttons start>
+          <button ion-button icon-only color="royal"  [attr.disabled]="!pageIndex? '' : null"  (click)="goTo('first')">
+              <ion-icon name="skip-backward"></ion-icon>
+          </button>
+          <button ion-button icon-only color="royal" [attr.disabled]="pageIndex == 0 ? '' : null" (click)="goTo('prev')">
+              <ion-icon name="arrow-back"></ion-icon>
+            </button>
+        </ion-buttons>
+         
+        <ion-buttons end>
+          <button ion-button icon-only color="royal" [attr.disabled]="pageIndex ==questions.length-1 ? '' : null" (click)="goTo('next')">
+              <ion-icon name="arrow-forward"></ion-icon>
+            </button>
+          <button ion-button icon-only color="royal"  [attr.disabled]="pageIndex == questions.length-1? '' : null" (click)="goTo('last')">
+              <ion-icon name="skip-forward"></ion-icon>
+          </button>
+        </ion-buttons>
+      </ion-toolbar>
+  
 </ion-footer>

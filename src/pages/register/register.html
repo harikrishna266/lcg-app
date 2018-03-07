@@ -19,21 +19,21 @@
                     </p>
                 </ion-item>  
                 <ion-item>
-                    <ion-label fixed>Name</ion-label>
+                    <ion-label floating>Name</ion-label>
                     <ion-input  formControlName="name"  type="text" value=""></ion-input>
                 </ion-item>
                 <ion-item>
-                    <ion-label fixed>email id</ion-label>
+                    <ion-label floating>Email ID</ion-label>
                     <ion-input  formControlName="email"  pattern="[a-zA-Z0-9.-_]{1,}@[a-zA-Z.-]{2,}[.]{1}[a-zA-Z]{2,}" type="text" value=""></ion-input>
                 </ion-item>
 
                 <ion-item>
-                    <ion-label fixed>Password</ion-label>
-                    <ion-input  formControlName="password" type="password"></ion-input>
+                    <ion-label floating>New Password</ion-label>
+                    <ion-input  formControlName="password"      type="password"></ion-input>
                 </ion-item>
                 <ion-item>
-                    <ion-label fixed>Password</ion-label>
-                    <ion-input  formControlName="password_confirmation" type="password"></ion-input>
+                    <ion-label floating>Confirm Password</ion-label>
+                    <ion-input  formControlName="password_confirmation"   type="password"></ion-input>
                 </ion-item>
             </ion-list>
             <button ion-button full type="submit" [disabled]="!registerForm.valid" >Register</button>

@@ -3,4 +3,7 @@ page-test {
 		overflow: initial;
 		white-space: initial;
 	}
+	ion-label {
+		white-space:normal !important;
+	}
 }
