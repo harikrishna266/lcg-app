@@ -36,12 +36,16 @@
     <ion-list-header>
       <h2>Downloads</h2>
     </ion-list-header>
-    <button ion-button full (click)="open(prog.pre_course_material_1)"  [attr.disabled]="(buttonStatus == 'View Sessions' ||  buttonStatus ==  'Take Test')?null:'disabled'" > {{ prog.pre_course_material_name_1  }}</button>
-  <button ion-button full (click)="open(prog.pre_course_material_2)" target="_blank"  [attr.disabled]="(buttonStatus == 'View Sessions' ||  buttonStatus ==  'Take Test')?null:'disabled'  "> {{  prog.pre_course_material_name_2 }} </button>
-  <button ion-button full (click)="open(prog.pre_course_material_3)" target="_blank"  [attr.disabled]="(buttonStatus == 'View Sessions' ||  buttonStatus ==  'Take Test')?null:'disabled'  "> {{  prog.pre_course_material_name_3 }} </button>
-  <button ion-button full (click)="open(prog.pre_course_material_4)" target="_blank"  [attr.disabled]="(buttonStatus == 'View Sessions' ||  buttonStatus ==  'Take Test')?null:'disabled'  "> {{  prog.pre_course_material_name_4 }} </button>
-  <button ion-button full (click)="open(prog.pre_course_material_5)" target="_blank"  [attr.disabled]="(buttonStatus == 'View Sessions' ||  buttonStatus ==  'Take Test')?null:'disabled'  "> {{  prog.pre_course_material_name_5 }} </button>
-  <button ion-button full (click)="open(prog.pre_course_material_6)" target="_blank"  [attr.disabled]="(buttonStatus == 'View Sessions' ||  buttonStatus ==  'Take Test')?null:'disabled'  "> {{  prog.pre_course_material_name_6 }} </button>
+ 
+  <button ion-button full *ngIf="prog.pre_course_material_1?.length>0" (click)="open(prog.pre_course_material_1)"  [attr.disabled]="(buttonStatus == 'View Sessions' ||  buttonStatus ==  'Take Test')?null:'disabled'" > {{ prog.pre_course_material_name_1  }}</button>
+  <button ion-button full *ngIf="prog.pre_course_material_2 !== ''" (click)="open(prog.pre_course_material_2)" target="_blank"  [attr.disabled]="(buttonStatus == 'View Sessions' ||  buttonStatus ==  'Take Test')?null:'disabled'  "> {{  prog.pre_course_material_name_2 }} </button>
+  <button ion-button full *ngIf="prog.pre_course_material_3 !== ''" (click)="open(prog.pre_course_material_3)" target="_blank"  [attr.disabled]="(buttonStatus == 'View Sessions' ||  buttonStatus ==  'Take Test')?null:'disabled'  "> {{  prog.pre_course_material_name_3 }} </button>
+  <button ion-button full *ngIf="prog.pre_course_material_4 !== ''" (click)="open(prog.pre_course_material_4)" target="_blank"  [attr.disabled]="(buttonStatus == 'View Sessions' ||  buttonStatus ==  'Take Test')?null:'disabled'  "> {{  prog.pre_course_material_name_4 }} </button>
+  <button ion-button full *ngIf="prog.pre_course_material_5 !== ''" (click)="open(prog.pre_course_material_5)" target="_blank"  [attr.disabled]="(buttonStatus == 'View Sessions' ||  buttonStatus ==  'Take Test')?null:'disabled'  "> {{  prog.pre_course_material_name_5 }} </button>
+  <button ion-button full *ngIf="prog.pre_course_material_6 !== ''" (click)="open(prog.pre_course_material_6)" target="_blank"  [attr.disabled]="(buttonStatus == 'View Sessions' ||  buttonStatus ==  'Take Test')?null:'disabled'  "> {{  prog.pre_course_material_name_6 }} </button>
+  <button ion-button full *ngIf="prog.pre_course_material_7?.length>0" (click)="open(prog.pre_course_material_7)" target="_blank"  [attr.disabled]="(buttonStatus == 'View Sessions' ||  buttonStatus ==  'Take Test')?null:'disabled'  "> {{  prog.pre_course_material_name_7 }} </button>
+  <button ion-button full *ngIf="prog.pre_course_material_8?.length>0" (click)="open(prog.pre_course_material_8)" target="_blank"  [attr.disabled]="(buttonStatus == 'View Sessions' ||  buttonStatus ==  'Take Test')?null:'disabled'  "> {{  prog.pre_course_material_name_8 }} </button>
+  <button ion-button full *ngIf="prog.pre_course_material_9?.length>0" (click)="open(prog.pre_course_material_9)" target="_blank"  [attr.disabled]="(buttonStatus == 'View Sessions' ||  buttonStatus ==  'Take Test')?null:'disabled'  "> {{  prog.pre_course_material_name_9 }} </button>
   </ion-list>  
 </ion-content>
 <ion-footer>
@@ -52,8 +56,14 @@
       <button ion-button full *ngIf="buttonStatus=='Take Test'" (click)="taketest(programtest)">
           <div>{{buttonStatus}}</div>
       </button>
+     
       <button ion-button full *ngIf="buttonStatus=='Waiting Admins Approval'" (click)="pay(prog)">
           <div>{{buttonStatus}}</div>
+      </button>
+    </ion-toolbar>
+    <ion-toolbar color="light">
+      <button ion-button full *ngIf="preTestDetails>0" (click)="takePretest(preTestDetails)">
+          <div>Take Pre Test</div>
       </button>
     </ion-toolbar>
 </ion-footer>

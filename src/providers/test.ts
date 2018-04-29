@@ -13,6 +13,12 @@ export class TestProvider extends ApiService {
     .get(`${environment.baseURL}api/get-test/${id}`,options)
     .map(res => res.json())
   }
+  getPreTest(id) {
+    let options = this.createAuthHeader();
+    return this.http
+    .get(`${environment.baseURL}api/get-pre-test/${id}`,options)
+    .map(res => res.json())
+  }
   MarkTestStarted(testid) {
     let options = this.createAuthHeader();
     return this.http

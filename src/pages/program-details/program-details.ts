@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { SessionsPage } from '../sessions/sessions';
 import { TestPage } from '../test/test';
+import { PretestPage } from '../pretest/pretest';
 import { ProgramProvider } from '../../providers/program';
 import { PaymentPage } from '../payment/payment';
 import { ModalController } from 'ionic-angular';
@@ -19,6 +20,7 @@ export class ProgramDetailsPage {
   public prog:PaidProgramModel;
   public sessions:SessionModel[] = [];
   public programtest:any;
+  public preTestDetails:any;
 
   constructor(
     public navCtrl: NavController,
@@ -27,17 +29,14 @@ export class ProgramDetailsPage {
     public modal:ModalController,
     public navParams: NavParams) {
       let res = this.navParams.data.data;
-      let banner_url = "";
-      let banner  = this.navParams.data.data.banner.split('/');
-      if(banner.length>0) banner_url  = banner[banner.length-1];
-      else banner_url = this.navParams.data.data.banner;
+      
   
     this.prog =    new PaidProgramModel(
             res.id,
             res.name,
             res.venue,
             res.date,
-            banner_url,
+            '',
             '',
             res.description,
             res.pre_course_material_1,
@@ -100,14 +99,15 @@ export class ProgramDetailsPage {
     })
   }
   getPaidData(id){
-    console.log(id);
     this.getPaidProgram(id);
     this.getSessions(id);
     this.checktestStatus(id);
+    this.checkPreTestStatus(id);
   }
   getPaidProgram(id){
     this.programSer.getPaidProgram(id)
       .subscribe(res => {
+        console.log(res);
         this.prog = new PaidProgramModel(res.id,
           res.name,
           res.venue,
@@ -137,6 +137,13 @@ export class ProgramDetailsPage {
                                               )
       })
   }
+  checkPreTestStatus($program_id) {
+    this.programSer.getPreTestStatus($program_id)
+      .subscribe(res => {
+        if(res.length>0)
+          this.preTestDetails = res[0].id;
+      })
+  }
   getSessions($program_id) {
     this.sessionSev.getPaidSession($program_id)
       .subscribe(res => {
@@ -159,6 +166,9 @@ export class ProgramDetailsPage {
           this.programtest = res[0];
         }
       })
+  }
+  takePretest(prog) {
+    this.navCtrl.setRoot(PretestPage,{program:prog}); 
   }
   open(link){
     window.open(link,'_blank');

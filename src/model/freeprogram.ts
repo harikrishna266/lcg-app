@@ -46,15 +46,21 @@ export class PaidProgramModel{
     ){
         this.banner = environment.baseURL+"images/"+banner;
         this.widebanner = environment.baseURL+"images/"+widebanner;
-        this.pre_course_material_1 = environment.baseURL+"images/"+pre_course_material_1;
-        this.pre_course_material_2 = environment.baseURL+"images/"+pre_course_material_2;
-        this.pre_course_material_3 = environment.baseURL+"images/"+pre_course_material_3;
-        this.pre_course_material_4 = environment.baseURL+"images/"+pre_course_material_4;
-        this.pre_course_material_5 = environment.baseURL+"images/"+pre_course_material_5;
-        this.pre_course_material_6 = environment.baseURL+"images/"+pre_course_material_6;
-        this.pre_course_material_7 = environment.baseURL+"images/"+pre_course_material_7;
-        this.pre_course_material_8 = environment.baseURL+"images/"+pre_course_material_8;
+        if(this.notEmpty(pre_course_material_1)) this.pre_course_material_1 = environment.baseURL+"images/"+pre_course_material_1;
+        if(this.notEmpty(pre_course_material_2)) this.pre_course_material_2 = environment.baseURL+"images/"+pre_course_material_2;
+        if(this.notEmpty(pre_course_material_3)) this.pre_course_material_3 = environment.baseURL+"images/"+pre_course_material_3;
+        if(this.notEmpty(pre_course_material_4)) this.pre_course_material_4 = environment.baseURL+"images/"+pre_course_material_4;
+        if(this.notEmpty(pre_course_material_5)) this.pre_course_material_5 = environment.baseURL+"images/"+pre_course_material_5;
+        if(this.notEmpty(pre_course_material_6)) this.pre_course_material_6 = environment.baseURL+"images/"+pre_course_material_6;
+        if(this.notEmpty(pre_course_material_7)) this.pre_course_material_7 = environment.baseURL+"images/"+pre_course_material_7;
+        if(this.notEmpty(pre_course_material_8)) this.pre_course_material_8 = environment.baseURL+"images/"+pre_course_material_8;
+        if(this.notEmpty(pre_course_material_9))  this.pre_course_material_9 = environment.baseURL+"images/"+pre_course_material_9;
         
+    }
+
+    notEmpty(e) {
+        if(e != "" && e !=null ) return true;
+        else return false;
     }
 }
 

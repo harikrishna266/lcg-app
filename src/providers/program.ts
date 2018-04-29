@@ -44,6 +44,11 @@ export class ProgramProvider extends ApiService {
         return this.http.get(`${environment.baseURL}api/get-active-test/${programid}`, options)
             .map(res => res.json());
     }
+    getPreTestStatus(programid) {
+        let options = this.createAuthHeader();
+        return this.http.get(`${environment.baseURL}api/get-active-pre-test/${programid}`, options)
+            .map(res => res.json());
+    }
 
 
 }

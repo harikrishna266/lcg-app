@@ -20,12 +20,37 @@ export class RegisterPage {
     public toast: ToastController,
     public fb: FormBuilder,
     public navParams: NavParams) {
-    this.registerForm = this.fb.group({
-      name: ['', Validators.required],
-      email: ['', Validators.required],
-      password: ['', Validators.required],
-      password_confirmation: ['', Validators.required],
-    });
+  
+      this.registerForm = this.fb.group({
+        name: ['', Validators.required],
+        email: ['', Validators.required],
+        lastname: ['', Validators.required],
+        
+        gender: ['', Validators.required],
+        nationality: ['', Validators.required],
+        dateofbirth: ['', Validators.required],
+        mobile: ['', Validators.required],
+        phone: ['', Validators.required],
+        email_personal: ['', Validators.required],
+        organisation: ['', Validators.required],
+        designation: ['', Validators.required],
+        expectations: ['', Validators.required],
+        orgaddress: ['', Validators.required],
+        city: ['', Validators.required],
+        pin: ['', Validators.required],
+        state: ['', Validators.required],
+        country: ['', Validators.required],
+        hr: ['', Validators.required],
+        hr_designation: ['', Validators.required],
+        hr_mobile: ['', Validators.required],
+        hr_email: ['', Validators.required],
+        password: ['', Validators.required],
+        password_confirmation : ['', Validators.required],
+        advertisement: ['', Validators.required],
+        website: ['', Validators.required],
+        brochure: ['', Validators.required],
+        Office: ['', Validators.required],
+      });
   }
 
   ionViewDidLoad() {

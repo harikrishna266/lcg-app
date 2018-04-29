@@ -1,7 +1,7 @@
 <ion-header>
 
   <ion-navbar>
-		<ion-title>Payment</ion-title>
+		<ion-title>Join Program</ion-title>
 			<ion-buttons end>
 				<button ion-button icon-only (click)="cancel()">
 					<ion-icon name="close"></ion-icon>
@@ -13,28 +13,10 @@
 <ion-content>
   <ion-card>
     <ion-card-content>
-      <div [innerHtml]="pro.program_payment_instructions">
+      <div>
+        Please contact administrator 
       </div>
     </ion-card-content>
   </ion-card>
-  <form [formGroup]="MakepaymentForm" (ngSubmit)="makePayment()">
-    <ion-list>
-      <ion-list-header>
-        Enter Payment Information :
-      </ion-list-header>
-      <ion-item>
-        <ion-label fixed>Bank Name</ion-label>
-        <ion-input formControlName="bank" name="bank" type="text" value=""></ion-input>
-      </ion-item>
-      <ion-item>
-        <ion-label fixed>TXN number</ion-label>
-        <ion-input formControlName="trxno" type="text" name="trxno" value=""></ion-input>
-      </ion-item>
-      <ion-item>
-        <ion-label fixed>Amount</ion-label>
-        <ion-input formControlName="amount" name="amount" type="number" value=""></ion-input>
-      </ion-item>
-    </ion-list>
-    <button ion-button type="submit" [disabled]="!MakepaymentForm.valid" full >Pay</button>
-  </form>
+   
 </ion-content>

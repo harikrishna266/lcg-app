@@ -23,17 +23,123 @@
                     <ion-input  formControlName="name"  type="text" value=""></ion-input>
                 </ion-item>
                 <ion-item>
-                    <ion-label floating>Email ID</ion-label>
+                    <ion-label floating>lastname</ion-label>
+                    <ion-input  formControlName="lastname"  type="text" value=""></ion-input>
+                </ion-item>
+                <ion-item>
+                    <ion-label floating>email id</ion-label>
                     <ion-input  formControlName="email"  pattern="[a-zA-Z0-9.-_]{1,}@[a-zA-Z.-]{2,}[.]{1}[a-zA-Z]{2,}" type="text" value=""></ion-input>
                 </ion-item>
-
                 <ion-item>
-                    <ion-label floating>New Password</ion-label>
-                    <ion-input  formControlName="password"      type="password"></ion-input>
+                    <ion-label>Gender</ion-label>
+                    <ion-select  formControlName="gender">
+                      <ion-option value="female">Female</ion-option>
+                      <ion-option value="male">Male</ion-option>
+                    </ion-select>
+                  </ion-item>
+                  <ion-item>
+                    <ion-label floating>Nationality</ion-label>
+                    <ion-input  formControlName="nationality"   type="text" value=""></ion-input>
                 </ion-item>
                 <ion-item>
-                    <ion-label floating>Confirm Password</ion-label>
-                    <ion-input  formControlName="password_confirmation"   type="password"></ion-input>
+                    <ion-label floating>Date of Birth</ion-label>
+                    <ion-input  formControlName="dateofbirth"  type="date" value=""></ion-input>
+                </ion-item>
+                <ion-item>
+                    <ion-label floating>Mobile</ion-label>
+                    <ion-input  formControlName="mobile"  type="text" value=""></ion-input>
+                </ion-item>
+                <ion-item>
+                    <ion-label floating>Phone</ion-label>
+                    <ion-input  formControlName="phone"  type="text" value=""></ion-input>
+                </ion-item>
+                <ion-item>
+                    <ion-label floating>Other Email </ion-label>
+                    <ion-input  formControlName="email_personal"    pattern="[a-zA-Z0-9.-_]{1,}@[a-zA-Z.-]{2,}[.]{1}[a-zA-Z]{2,}"  type="text" value=""></ion-input>
+                </ion-item>
+                <ion-item>
+                    <ion-label floating>designation</ion-label>
+                    <ion-input  formControlName="designation"  type="text" value=""></ion-input>
+                </ion-item>
+                <ion-item>
+                    <ion-label floating>Organisation</ion-label>
+                    <ion-input  formControlName="organisation"  type="text" value=""></ion-input>
+                </ion-item>
+                <ion-item>
+                    <ion-label floating>Expectations</ion-label>
+                    <ion-input  formControlName="expectations"  type="text" value=""></ion-input>
+                </ion-item>
+                <ion-item>
+                    <ion-label floating>Organisation Address</ion-label>
+                    <ion-input  formControlName="orgaddress"  type="text" value=""></ion-input>
+                </ion-item>
+                <ion-item>
+                    <ion-label floating>City</ion-label>
+                    <ion-input  formControlName="city"  type="text" value=""></ion-input>
+                </ion-item>
+                <ion-item>
+                    <ion-label floating>pin</ion-label>
+                    <ion-input  formControlName="pin"  type="text" value=""></ion-input>
+                </ion-item>
+                <ion-item>
+                    <ion-label floating>state</ion-label>
+                    <ion-input  formControlName="state"  type="text" value=""></ion-input>
+                </ion-item>
+                <ion-item>
+                    <ion-label floating>country</ion-label>
+                    <ion-input  formControlName="country"  type="text" value=""></ion-input>
+                </ion-item>
+                <ion-item>
+                    <ion-label floating>hr</ion-label>
+                    <ion-input  formControlName="hr"  type="text" value=""></ion-input>
+                </ion-item>
+                <ion-item>
+                    <ion-label floating>hr_designation</ion-label>
+                    <ion-input  formControlName="hr_designation"  type="text" value=""></ion-input>
+                </ion-item>
+                <ion-item>
+                    <ion-label floating>hr_mobile</ion-label>
+                    <ion-input  formControlName="hr_mobile"  type="text" value=""></ion-input>
+                </ion-item>
+                <ion-item>
+                    <ion-label floating>hr_email</ion-label>
+                    <ion-input  formControlName="hr_email"  type="text" value=""></ion-input>
+                </ion-item>
+               
+                <ion-item>
+                    <ion-label floating>Password</ion-label>
+                    <ion-input  formControlName="password" type="password"></ion-input>
+                </ion-item>
+                <ion-item>
+                    <ion-label floating>Password</ion-label>
+                    <ion-input  formControlName="password_confirmation" type="password"></ion-input>
+                </ion-item>
+                
+                <ion-list-header>
+                    how did you know about this Programme?
+                  </ion-list-header>
+                <ion-item>
+                    <ion-label floating>Advertisement</ion-label>
+                    <ion-input  formControlName="advertisement"  type="text" value=""></ion-input>
+                </ion-item>
+                <ion-item>
+                    <ion-label floating>Website</ion-label>
+                    <ion-input  formControlName="website"  type="text" value=""></ion-input>
+                </ion-item>
+                <ion-item>
+                    <ion-label floating>brochure</ion-label>
+                    <ion-select  formControlName="brochure" >
+                        <ion-option value="yes">Yes</ion-option>
+                        <ion-option value="no">No</ion-option>
+                      </ion-select>
+                </ion-item>
+                <ion-item>
+                    <ion-label floating>Office</ion-label>
+                   
+                    <ion-select  formControlName="Office" >
+                        <ion-option value="yes">Yes</ion-option>
+                        <ion-option value="no">No</ion-option>
+                      </ion-select>
                 </ion-item>
             </ion-list>
             <button ion-button full type="submit" [disabled]="!registerForm.valid" >Register</button>

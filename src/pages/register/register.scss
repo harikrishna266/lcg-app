@@ -5,4 +5,7 @@ page-register {
     .login-image {
         width: 50%;margin: auto;
     }
+    ion-item.ng-invalid.ng-dirty{
+        border: 1px solid red !important;
+    }
 }

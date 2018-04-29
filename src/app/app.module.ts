@@ -14,12 +14,14 @@ import { PaymentPageModule } from '../pages/payment/payment.module';
 import { SessionsPageModule } from '../pages/sessions/sessions.module';
 import { FeedbackPageModule } from '../pages/feedback/feedback.module';
 import { TestPageModule } from '../pages/test/test.module';
+import { PretestPageModule } from '../pages/pretest/pretest.module';
 import { RulesPageModule } from '../pages/rules/rules.module';
 import { AnsweredPageModule } from '../pages/answered/answered.module';
 import { SingleQuestionPageModule } from '../pages/single-question/single-question.module';
 import { ResultsPageModule } from '../pages/results/results.module';
 import { RegisterPageModule } from '../pages/register/register.module'
 import { TestFeedbackPageModule } from '../pages/test-feedback/test-feedback.module';
+import { PreTestResultPageModule } from '../pages/pre-test-result/pre-test-result.module';
 import { HttpModule } from '@angular/http';
 import { HttpClientModule, HttpClient } from '@angular/common/http'; 
 
@@ -46,8 +48,10 @@ import { TestProvider } from '../providers/test';
     ResultsPageModule,
     RegisterPageModule,
     TestPageModule,
+    PretestPageModule,
     ProgramDetailsPageModule,
     PaymentPageModule,
+    PreTestResultPageModule,
     HttpModule,
     HttpClientModule,
     SessionsPageModule,

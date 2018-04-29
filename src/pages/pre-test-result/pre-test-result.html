@@ -1,0 +1,22 @@
+<!--
+  Generated template for the PreTestResultPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Your Score </ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  <div style="width:200px; font-size:70px; text-align: center;">
+    <h1><sup>{{score}}</sup>&frasl;<sub>{{total}}</sub></h1> 
+    <button ion-button full (click)="navCtrl.pop()">Okay</button>
+  </div>
+
+</ion-content>
